@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/main.css">
+    <title>Water Distribution System</title>
+    <style type="text/css">
+    </style>
+</head>
+
+<body>
+    <h1>WATER MAX FLOW DISTRIBUTION SYSTEM</h1>
+    <hr>
+    <hr>
+    <div style="height: 70px; width: max-content; border: 5px; margin-left: 650px;">
+        <button onClick="randomGraph()" style="width: 250px; height: 50px; font-size: 20px;">RANDOM GRAPH</button>
+        <button onClick=mygraph.reset(); style="width: 250px; height: 50px; font-size: 20px;">CLEAR ALL</button>
+        <button id="clearAlg" onClick=mygraph.clearAlg(); style="width: 250px; height: 50px; font-size: 20px;">Clear algorithm</button>
+    </div>
+    <hr><hr>
+    <div style="height: 70px; width: max-content;  margin-left: 50px;">
+        <p style="font-size: 30px; margin-left: 750px;">Maximum Capacity:<input style="text-align:center; height: 50px; width: 150px; font-size: 20px;" ; size=5 value="100" id="maxCap"></p>
+    </div>
+    <hr><hr>
+    <div style="font-size: 30px;height: 70px; width: max-content;  border: 5px; margin-left: 450px;">
+        Algorithm:<select id="algorithm" style="width: 250px; height: 50px; font-size: 20px;">
+            <option value="edmondsKarp" selected>EDMONDS-KARP</option>
+            <option value="bottleneck">CAPACITY SCALING</option>
+        </select>
+        <button id="playButton" onClick="play()" style="width: 250px; height: 50px; font-size: 20px;">PLAY ALGORITHM</button>
+        <button id="saveB" onClick="save()" style="width: 250px; height: 50px; font-size: 20px;">SAVE</button>
+        <button id="restoreB" onClick="restore()" style="width: 250px; height: 50px; font-size: 20px;">RESTORE</button>
+        &nbsp;
+    </div>
+    <hr><hr>
+    <div style="margin: 0 auto; width: 700px; border-color:white; border-style:groove;">
+        &nbsp;&nbsp;&nbsp;
+        Maximum Flow:
+        <input style="text-align:center" size=8 value="0" id="MaxFlowText" disabled>
+        &nbsp;&nbsp;&nbsp;
+        Augmented by:
+        <input style="text-align:center" size=8 value="0" id="aug" disabled>
+
+        &nbsp;&nbsp;&nbsp;
+        Augmenting Paths:
+        <input style="text-align:center" size=8 value="0" id="path" disabled>
+    </div><br />
+    <div style="float: left; margin-left:0px; color:whitesmoke; font-size:40px">Flow Network:</div>
+    <div style="float: center; margin-left:750px; color:lightblue; font-size:40px">Residual Network:</div>
+    <div id="contentContainer" style="position: relative;">
+        <canvas id="canvas" width="680" height="400" style="border-right: 1px solid black;"></canvas>
+        <canvas id="canvas2" width="680" height="400"></canvas>
+    </div>
+
+    <div id="vertexMenu">
+        <button class="button" id="vButton1" onClick=moveVertex();> Move </button> <br>
+        <button class="button" id="vButton2" onClick=removeVertex();> Delete </button> <br>
+        <!--<button class="button" id="vButton3" onClick=chooseS();> Source </button> <br>
+        <button class="button" id="vButton4" onClick=chooseT();> Sink </button> <br>-->
+        <button class="button" id="vButton5" onClick=cancel();> Cancel </button> <br>
+    </div>
+    <div id="edgeMenu">
+        <button class="button" id="eButton1" onClick=flip();> flip </button> <br>
+        <button class="button" id="eButton2" onClick=setCapacity();> Set Capacity </button> <br>
+        <button class="button" id="eButton3" onClick=removeEdge();> Delete </button> <br>
+        <button class="button" id="eButton4" onClick=cancel();> Cancel </button> <br>
+    </div>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
